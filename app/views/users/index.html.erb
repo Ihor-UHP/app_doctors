@@ -1,0 +1,16 @@
+<h2>All doctors</h2>
+
+<% @users.each do |t| %>
+  <% if t.role=='doctor'%>
+    <%= "#{t.surname}" %> - <%= "#{t.profession}" %>
+  <% end %>
+<% end %>
+
+<h2>All patients</h2>
+
+<% @users.each do |t| %>
+  <% if t.role=='patient'%>
+    <%= t.surname %><br>
+  <% end %>
+<% end %>
+

@@ -5,3 +5,32 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+#### user_table
+# list_of_users = [
+#   [ 'Ihor', 'Vladimirovich', 'Klymov', 'patient', 'engineer', 'oapr', 'eee@oapr.com' ],
+#   [ 'Ihor', 'Anatolievich', 'Torokhty', 'patient', 'engineer', 'oapr', 'ttt@oapr.com' ],
+#   [ 'Pavel', 'Vasilevich', 'Medvedev', 'doctor', 'psychiatrist', 'oapr', 'mmm@oapr.com' ]
+# ]
+
+# list_of_users.each do |name, patronymic, surname, role, profession, organization, email|
+#   User.create(
+#     name: name,
+#     patronymic: patronymic,
+#     surname: surname,
+#     role: role,
+#     profession: profession,
+#     organization: organization,
+#     email: email
+#   )
+# end
+
+list_of_professions = [
+  ['name']
+]
+
+list_of_professions.each do |name|
+  Profession.create(
+    name: name
+  )
+end
