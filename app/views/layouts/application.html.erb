@@ -6,8 +6,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
@@ -20,52 +20,14 @@
             <li class="nav-item <%= 'active' if current_page?(root_path) || current_page?(posts_path) %>">
               <a class="nav-link" href="<%= root_path %>">Все пользователи</a>
             </li>
-            
-            <p class="notice"><%= notice %></p>
-            <p class="alert"><%= alert %></p>
-
-            <%
-=begin%>
- <% Category.order(:name).roots.each do |category| %>
-              <li class="nav-item <%= 'active' if current_page?(category_path(category)) %>">
-                <%= link_to category.name, category, class: 'nav-link' %>
-              </li>
-            <% end %> 
-<%
-=end%>
           </ul>
-
-          <%
-=begin%>
- <ul class="navbar-nav pull-xs-right">
-            <% if user_signed_in? %>
-              <li class="nav-item">
-                <%= link_to "Выход", destroy_user_session_path, method: :delete, class: "nav-link" %>
-              </li>
-            <% else %>
-              <li class="nav-item">
-                <%= link_to "Вход", new_user_session_path, class: "nav-link" %>
-              </li>
-              <li class="nav-item">
-                <%= link_to "Регистрация", new_user_registration_path, class: "nav-link" %>
-              </li>
-            <% end %>
-            <li class="nav-item<%= " active" if I18n.locale == :ru %>">
-              <%= link_to "Рус", { locale: :ru }, class: "nav-link" %>
-            </li>
-            <li class="nav-item<%= " active" if I18n.locale == :en %>">
-              <%= link_to "En", { locale: :en }, class: "nav-link" %>
-            </li>
-          </ul> 
-<%
-=end%>
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
         </div>
       </nav>
     </div>
 
-
-
-    
     <%= yield %>
+
   </body>
 </html>
