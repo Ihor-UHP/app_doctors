@@ -2,7 +2,7 @@
 
 <% @users.each do |t| %>
   <% if t.role=='doctor'%>
-    <%= "#{t.surname}" %> - <%= "#{t.profession}" %>
+    <%= "#{t.surname}" %> - <%= "#{t.category_id}" %>
   <% end %>
 <% end %>
 
