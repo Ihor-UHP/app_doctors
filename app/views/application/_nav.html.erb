@@ -1,0 +1,33 @@
+<div class="bd-example">
+  <ul class="nav justify-content-end">
+    <li class="nav-item">
+      <%= link_to  "Home", root_path, :class => 'nav-link' %>
+    </li>
+    <% if @current_user %> 
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Orders</a>
+        <div class="dropdown-menu">
+          <%= link_to  "link1", new_order_path, :class => 'dropdown-item' %>
+          <div class="dropdown-divider"></div>
+          <%= link_to  "link2", orders_path, :class => 'dropdown-item' %>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Users</a>
+        <div class="dropdown-menu">
+          <%= link_to "Profile", @current_user, :class => 'dropdown-item' %>
+        </div>
+      </li>
+      <li class="nav-item">
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'nav-link' %>
+      </li>
+    <% else %>
+      <li class="nav-item">
+        <%= link_to "Sign up", new_user_registration_path, :class => 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Log in", new_user_session_path, :class => 'nav-link' %>
+      </li>
+    <% end %> 
+  </ul>
+</div>

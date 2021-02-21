@@ -1,16 +1,10 @@
-<h2>All doctors</h2>
-
+<h3>If you are a doctor, you can see a list of registered patients:</h3>
 <% @users.each do |t| %>
   <% if t.role=='doctor'%>
-    <%= "#{t.surname}" %> - <%= "#{t.category_id}" %>
+    <div class="jumbotron">
+      <%= "#{t.surname} #{t.name.chars.first} #{t.patronymic.chars.first}" %> - <%= "#{t.category.category}" %>
+      <br>
+      <%= link_to "More details", user_path(t), :class => 'btn btn-outline-primary' %>
+    </div>
   <% end %>
 <% end %>
-
-<h2>All patients</h2>
-
-<% @users.each do |t| %>
-  <% if t.role=='patient'%>
-    <%= t.surname %><br>
-  <% end %>
-<% end %>
-
